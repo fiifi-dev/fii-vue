@@ -18,7 +18,7 @@ export default defineConfig({
     vue(),
     WindiCSS(),
     vueJsx(),
-    dts({}),
+    dts(),
     AutoImport({
       imports: [
         "vue",
