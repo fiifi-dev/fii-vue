@@ -10,13 +10,15 @@ import Icons from "unplugin-icons/vite";
 import { FileSystemIconLoader } from "unplugin-icons/loaders";
 import IconsResolver from "unplugin-icons/resolver";
 import Components from "unplugin-vue-components/vite";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
     WindiCSS(),
-    dts(),
+    vueJsx(),
+    dts({}),
     AutoImport({
       imports: [
         "vue",
@@ -34,10 +36,10 @@ export default defineConfig({
       ],
 
       dirs: ["./src/composables", "./src/helpers"],
-      dts: true,
+      dts: "./src/auto-imports.d.ts",
     }),
     Components({
-      dts: true,
+      dts: "./src/components.d.ts",
       resolvers: [
         IconsResolver({
           customCollections: ["fii"],

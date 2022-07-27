@@ -67,9 +67,8 @@
 </template>
 
 <script lang="ts">
-import { MenuItem } from "@/types";
-import { useMediaQuery, useStorage } from "@vueuse/core";
-import { PropType, StyleValue, defineComponent, computed, watch } from "vue";
+import type { MenuItem } from "@/types";
+import type { PropType, StyleValue } from "vue";
 
 export default defineComponent({
   name: "FAdminLayout",

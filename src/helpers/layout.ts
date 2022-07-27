@@ -1,6 +1,5 @@
-import { propsFactory } from "@/helpers/propsFactory";
-import { Size } from "@/types";
-import { PropType, StyleValue } from "vue";
+import type { Size } from "@/types";
+import type { PropType, StyleValue } from "vue";
 
 export const makeLayoutProps = propsFactory({
   size: {

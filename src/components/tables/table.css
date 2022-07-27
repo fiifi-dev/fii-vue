@@ -1,0 +1,32 @@
+.f-wrapper {
+  @apply m-auto overflow-x-auto;
+}
+
+.f-table {
+  @apply table-auto w-full border-separate table;
+  border-spacing: 0;
+}
+
+.f-th {
+  @apply text-left text-sm px-3 py-4 uppercase bg-gray-50;
+  @apply font-medium text-gray-600 tracking-wider border-b border-t border-gray-200;
+}
+
+
+.f-thead {
+  @apply sticky shadow-sm;
+}
+
+.f-td {
+  @apply p-3 text-sm text-gray-600 border-b border-gray-100;
+}
+
+.f-td-addon {
+  @apply text-center bg-white;
+}
+
+.f-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}

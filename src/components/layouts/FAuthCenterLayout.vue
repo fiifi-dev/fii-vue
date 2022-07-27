@@ -9,10 +9,6 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { useLayout } from "@/composables/layout";
-import { makeLayoutProps } from "@/helpers/layout";
-
 export default defineComponent({
   name: "FAuthCenterLayout",
 

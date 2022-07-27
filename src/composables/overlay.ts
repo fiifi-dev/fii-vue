@@ -1,5 +1,3 @@
-import { watch } from "vue";
-
 export const useOverlay = (visible: boolean, paddingRight: number = 8) => {
   const setDomBody = (add = false) => {
     if (add) {

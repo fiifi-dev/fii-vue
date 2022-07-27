@@ -1,5 +1,4 @@
 import { Size } from "@/types";
-import { computed } from "vue";
 
 export const useGetSize = (size: () => Size | boolean) => {
   // set to boolean true if small

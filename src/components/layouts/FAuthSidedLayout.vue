@@ -20,10 +20,6 @@
 </template>
 
 <script lang="ts">
-import { useLayout } from "@/composables/layout";
-import { makeLayoutProps } from "@/helpers/layout";
-import { defineComponent } from "vue";
-
 export default defineComponent({
   name: "FAuthSidedLayout",
 

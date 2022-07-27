@@ -1,4 +1,4 @@
-import { computed, type StyleValue } from "vue";
+import { type StyleValue } from "vue";
 
 export const useTable = (
   props: () => Readonly<{ stickyHeader?: number; hover?: boolean }>

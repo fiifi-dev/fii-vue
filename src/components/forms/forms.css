@@ -1,0 +1,12 @@
+.f-form-control {
+  @apply bg-gray-50 rounded-sm border border-gray-300 outline-none;
+  @apply focus:(border-primary-200 shadow-none ring-0);
+  @apply disabled:(opacity-70 cursor-default);
+  @apply text-primary-100 tracking-wider;
+}
+
+.f-append-btn {
+  @apply bg-primary-200 text-white;
+  @apply self-stretch px-3 rounded-r-sm;
+  @apply active:bg-primary-100;
+}

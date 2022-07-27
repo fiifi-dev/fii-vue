@@ -1,5 +1,4 @@
-import { Toast, toastKey } from "@/helpers/buses";
-import { useEventBus } from "@vueuse/core";
+import { Toast } from "@/helpers/buses";
 
 export const useToast = (
   msg?: Toast["message"],

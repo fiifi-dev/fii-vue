@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent, type StyleValue } from "vue";
+import type { StyleValue } from "vue";
 
 export default defineComponent({
   name: "FSpace",
@@ -21,9 +21,7 @@ export default defineComponent({
       validator: (value: string) => {
         const test = new RegExp("^\\d+(px|em|rem)$").test(value);
         if (!test)
-          console.error(
-            "Must provide a valid size: 10rem | 10px | 10em"
-          );
+          console.error("Must provide a valid size: 10rem | 10px | 10em");
         return test;
       },
     },

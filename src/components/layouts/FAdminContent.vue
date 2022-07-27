@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { Tab } from "@/types";
-import { defineComponent, PropType } from "vue";
+import type { PropType } from "vue";
 
 export default defineComponent({
   name: "FAdminContent",

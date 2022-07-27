@@ -1,5 +1,4 @@
 import { Size } from "@/types";
-import { computed } from "vue";
 
 export const useLayout = (
   props: () => { size?: Size; block?: boolean }

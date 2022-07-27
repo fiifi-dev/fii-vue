@@ -1,6 +1,5 @@
-import { PropType } from "vue";
-import { propsFactory } from "@/helpers/propsFactory";
-import { Numeric, Pagination, TableHeader } from "@/types";
+import type { PropType } from "vue";
+import type { Numeric, Pagination, TableHeader } from "@/types";
 
 export const makeSimpleTableProps = propsFactory({
   headers: {

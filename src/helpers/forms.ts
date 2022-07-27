@@ -1,7 +1,5 @@
-import { PropType } from "vue";
-import { propsFactory } from "@/helpers/propsFactory";
-import { makePaddingY, makeTextSize } from "@/helpers/utils";
-import { SelectOption, Size } from "@/types";
+import type { PropType } from "vue";
+import type { SelectOption, Size } from "@/types";
 
 export type InputType =
   | "date"
