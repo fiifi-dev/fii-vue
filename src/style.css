@@ -1,0 +1,10 @@
+:root {
+  --primary-color-100: theme("colors.slate.700");
+  --primary-color-200: theme("colors.slate.800");
+  --primary-color-300: theme("colors.slate.900");
+}
+
+/* fixes body overflow-y  */
+.body-overlay {
+  @apply fixed top-0 left-0 right-0 bottom-0 pr-8px overflow-hidden;
+}
