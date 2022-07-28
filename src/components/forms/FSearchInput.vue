@@ -18,7 +18,7 @@
       />
 
       <button :class="['f-append-btn']">
-        <FSearchIcon :class="[size === 'sm' ? 'w-3 h-3' : 'w-5 h-5']" />
+        <IFiiSearch :class="[size === 'sm' ? 'w-3 h-3' : 'w-5 h-5']" />
       </button>
     </div>
   </FFormGroup>

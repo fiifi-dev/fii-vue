@@ -52,13 +52,4 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.f-checkbox {
-  @apply border-primary-200 rounded-sm
-@apply text-primary-100 focus:(ring-primary-200);
-}
-
-.f-label {
-  @apply flex items-center gap-3 m-auto;
-}
-</style>
+<style scoped></style>

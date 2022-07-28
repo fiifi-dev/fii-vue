@@ -3,6 +3,16 @@
     <table class="f-table">
       <thead class="f-thead">
         <tr>
+          <th v-if="showCheck" :class="[thClass, 'f-th']">
+            <input
+              v-if="multiple"
+              type="checkbox"
+              class="f-checkbox"
+              :checked="isAllSelected"
+              @change="handleSelectAll()"
+            />
+          </th>
+
           <th
             v-for="(header, index) in headers"
             :key="header.key"
@@ -17,7 +27,7 @@
 
       <tbody v-if="loading">
         <tr>
-          <td class="f-td-addon" :colspan="headers.length">
+          <td class="f-td-addon" :colspan="colspan">
             <slot name="loading"> Loading... </slot>
           </td>
         </tr>
@@ -29,6 +39,15 @@
           :key="item?.[idField]"
           :class="['bg-white', rowClass]"
         >
+          <td v-if="showCheck" class="f-td">
+            <input
+              type="checkbox"
+              class="f-checkbox"
+              :checked="isSelected(item)"
+              @change="handleSelect(item)"
+            />
+          </td>
+
           <td v-for="header in headers" :key="header.key" class="f-td">
             <slot :name="`cell(${header.key})`" :item="item" :index="index">
               {{ item?.[header.key] }}
@@ -39,7 +58,7 @@
 
       <tbody v-else>
         <tr>
-          <td class="f-td-addon" :colspan="headers.length">
+          <td class="f-td-addon" :colspan="colspan">
             <slot name="empty"> No items... </slot>
           </td>
         </tr>
@@ -56,10 +75,26 @@ export default defineComponent({
     ...makeSimpleTableProps(),
   },
 
-  setup(props) {
-    const { wrapperStyles, rowClass, thClass } = useTable(() => props);
+  emits: {
+    ...makeTableEmits(),
+  },
 
-    return { wrapperStyles, rowClass, thClass };
+  setup(props, { emit }) {
+    const { wrapperStyles, rowClass, thClass } = useTable(props);
+    const colspan = useTableColSpan(props);
+    const { handleSelect, handleSelectAll, isSelected, isAllSelected } =
+      useTableSelected(props, emit);
+
+    return {
+      wrapperStyles,
+      rowClass,
+      thClass,
+      colspan,
+      isAllSelected,
+      handleSelectAll,
+      handleSelect,
+      isSelected,
+    };
   },
 });
 </script>

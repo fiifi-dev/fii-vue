@@ -1,8 +1,8 @@
 <template>
-  <div :class="showBorder ? 'border' : ''">
+  <div :class="[showBorder ? 'border' : '']">
     <div :class="['flex flex-col gap-5 mb-5', showBorder ? 'p-5' : '']">
       <div class="flex flex-wrap justify-between items-center gap-5">
-        <h3 v-if="showTitle" class="f-title">
+        <h3 v-if="showTitle && title" class="f-title">
           <slot name="title">
             <span class="text-gray-500">{{ title }}</span>
             <span class="h-full border mx-3"></span>
@@ -22,7 +22,9 @@
         />
 
         <div>
-          <slot name="actions" />
+          <slot name="actions">
+            <FDropdown :items="actionMenu"> Action </FDropdown>
+          </slot>
         </div>
       </div>
     </div>
@@ -31,6 +33,16 @@
       <table class="f-table">
         <thead class="f-thead">
           <tr>
+            <th v-if="showCheck" :class="[thClass, 'f-th']">
+              <input
+                v-if="multiple"
+                type="checkbox"
+                class="f-checkbox"
+                :checked="isAllSelected"
+                @change="handleSelectAll()"
+              />
+            </th>
+
             <th
               v-for="(header, index) in headers"
               :key="header.key"
@@ -49,7 +61,7 @@
 
         <tbody v-if="loading">
           <tr>
-            <td class="f-td-addon" :colspan="headers.length">
+            <td class="f-td-addon" :colspan="colspan">
               <slot name="loading"> Loading... </slot>
             </td>
           </tr>
@@ -61,6 +73,15 @@
             :key="item?.[idField]"
             :class="['bg-white', rowClass]"
           >
+            <td v-if="showCheck" class="f-td">
+              <input
+                type="checkbox"
+                class="f-checkbox"
+                :checked="isSelected(item)"
+                @change="handleSelect(item)"
+              />
+            </td>
+
             <td v-for="header in headers" :key="header.key" class="f-td">
               <slot :name="`cell(${header.key})`" :item="item" :index="index">
                 {{ item?.[header.key] }}
@@ -71,7 +92,7 @@
 
         <tbody v-else>
           <tr>
-            <td class="f-td-addon" :colspan="headers.length">
+            <td class="f-td-addon" :colspan="colspan">
               <slot name="empty"> No items... </slot>
             </td>
           </tr>
@@ -79,7 +100,10 @@
       </table>
     </div>
 
-    <div v-if="showPagination" class="py-10 flex items-center justify-end">
+    <div
+      v-if="showPagination"
+      :class="['py-10 flex items-center justify-end', showBorder ? 'px-5' : '']"
+    >
       <slot name="pagination">
         <FPagination
           v-model:pagination="paginationData"
@@ -92,7 +116,8 @@
 </template>
 
 <script lang="ts">
-import type { Pagination } from "@/types";
+import type { DropdownItem, Pagination } from "@/types";
+import { PropType } from "vue";
 
 export default defineComponent({
   name: "FDataTable",
@@ -100,6 +125,14 @@ export default defineComponent({
   props: {
     ...makeSimpleTableProps(),
     ...makePaginationProps(),
+    actionMenu: {
+      type: Array as PropType<DropdownItem[]>,
+      required: false,
+      default: () => [
+        { key: "create", label: "Create" },
+        { key: "delete", label: "Delete" },
+      ],
+    },
     title: {
       type: String,
       required: false,
@@ -140,12 +173,16 @@ export default defineComponent({
 
   emits: {
     ...makePaginationEmits(),
+    ...makeTableEmits(),
     search: (_value?: string) => true,
     create: () => true,
   },
 
   setup(props, { emit }) {
-    const { wrapperStyles, rowClass, thClass } = useTable(() => props);
+    const { wrapperStyles, rowClass, thClass } = useTable(props);
+    const colspan = useTableColSpan(props);
+    const { handleSelect, handleSelectAll, isSelected, isAllSelected } =
+      useTableSelected(props, emit);
 
     const getSize = useGetSize(() => props.small);
 
@@ -159,7 +196,18 @@ export default defineComponent({
       },
     });
 
-    return { wrapperStyles, rowClass, thClass, getSize, paginationData };
+    return {
+      wrapperStyles,
+      rowClass,
+      thClass,
+      getSize,
+      paginationData,
+      colspan,
+      isAllSelected,
+      handleSelectAll,
+      handleSelect,
+      isSelected,
+    };
   },
 });
 </script>

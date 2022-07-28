@@ -12,7 +12,6 @@
   @apply font-medium text-gray-600 tracking-wider border-b border-t border-gray-200;
 }
 
-
 .f-thead {
   @apply sticky shadow-sm;
 }
@@ -22,7 +21,7 @@
 }
 
 .f-td-addon {
-  @apply text-center bg-white;
+  @apply text-center bg-white py-10;
 }
 
 .f-sticky-header {

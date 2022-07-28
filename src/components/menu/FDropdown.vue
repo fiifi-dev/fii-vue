@@ -5,7 +5,7 @@
       class="disabled:(opacity-50 cursor-default)"
       @click="handleShow"
     >
-      <slot name="action">Menu</slot>
+      <slot>Menu</slot>
     </button>
 
     <ul ref="target" :class="['f-dropdown-menu', canShow ? 'block' : 'hidden']">
@@ -86,7 +86,7 @@ export default defineComponent({
 
 <style scoped>
 .f-dropdown-menu {
-  @apply absolute bg-white;
+  @apply absolute z-50 bg-white;
   @apply shadow p-2 rounded-sm;
 }
 

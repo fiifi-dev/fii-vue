@@ -9,6 +9,7 @@ export type {
   SelectOption,
   MenuItem,
   AppBarItem,
+  DropdownItem,
 } from "./types";
 
 // Composables

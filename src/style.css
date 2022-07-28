@@ -1,3 +1,6 @@
+@import "./components/forms/forms.css";
+@import "./components/tables/table.css";
+
 :root {
   --primary-color-100: theme("colors.slate.700");
   --primary-color-200: theme("colors.slate.800");

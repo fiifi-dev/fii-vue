@@ -35,6 +35,7 @@ declare module '@vue/runtime-core' {
     IFiiMenu: typeof import('~icons/fii/menu')['default']
     IFiiPerson: typeof import('~icons/fii/person')['default']
     IFiiPower: typeof import('~icons/fii/power')['default']
+    IFiiSearch: typeof import('~icons/fii/search')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

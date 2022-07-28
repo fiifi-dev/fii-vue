@@ -41,6 +41,25 @@ export const makeSimpleTableProps = propsFactory({
     required: false,
     default: false,
   },
+
+  showCheck: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+
+  multiple: {
+    type: Boolean,
+    required: false,
+    default: false,
+  },
+
+  selected: {
+    type: [Object, Array] as PropType<
+      Record<string, any> | Record<string, any>[]
+    >,
+    required: false,
+  },
 });
 
 export const makePaginationProps = propsFactory({
@@ -67,5 +86,10 @@ export const makePaginationProps = propsFactory({
 });
 
 export const makePaginationEmits = () => ({
-  "update:pagination": (data: Pagination) => true,
+  "update:pagination": (_data: Pagination) => true,
+});
+
+export const makeTableEmits = () => ({
+  "update:selected": (_value: Record<string, any> | Record<string, any>[]) =>
+    true,
 });

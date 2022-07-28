@@ -10,3 +10,12 @@
   @apply self-stretch px-3 rounded-r-sm;
   @apply active:bg-primary-100;
 }
+
+.f-checkbox {
+  @apply border-primary-200 rounded-sm
+@apply text-primary-100 focus:(ring-primary-200);
+}
+
+.f-label {
+  @apply flex items-center gap-3 m-auto;
+}
