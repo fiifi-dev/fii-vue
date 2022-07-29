@@ -36,7 +36,7 @@ export type Tab = {
 export type DropdownItem = {
   icon?:  string;
   label: string;
-  key?: string;
+  key: string;
   to?: RouteLocationRaw;
 };
 

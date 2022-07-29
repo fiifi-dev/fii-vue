@@ -67,6 +67,11 @@ export default defineConfig({
     },
     dedupe: ["vue", "@vueuse/core", "@vueuse/integrations", "vue-router"],
   },
+
+  optimizeDeps: {
+    include: ["@popperjs/core"],
+  },
+
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
