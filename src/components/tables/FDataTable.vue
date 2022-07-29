@@ -23,7 +23,16 @@
 
         <div>
           <slot name="actions">
-            <FDropdown :items="actionMenu"> Action </FDropdown>
+            <FDropdown
+              :items="actionMenu"
+              :disabled="disableMenu"
+              @key="$emit('action', $event)"
+            >
+              <span class="flex flex-nowrap gap-0.5">
+                <span class="text-sm uppercase tracking-widest">Action</span>
+                <IFiiCaretDown />
+              </span>
+            </FDropdown>
           </slot>
         </div>
       </div>
@@ -129,7 +138,7 @@ export default defineComponent({
       type: Array as PropType<DropdownItem[]>,
       required: false,
       default: () => [
-        { key: "create", label: "Create" },
+        { key: "update", label: "Update" },
         { key: "delete", label: "Delete" },
       ],
     },
@@ -175,6 +184,7 @@ export default defineComponent({
     ...makePaginationEmits(),
     ...makeTableEmits(),
     search: (_value?: string) => true,
+    action: (_value?: string) => true,
     create: () => true,
   },
 
@@ -183,6 +193,13 @@ export default defineComponent({
     const colspan = useTableColSpan(props);
     const { handleSelect, handleSelectAll, isSelected, isAllSelected } =
       useTableSelected(props, emit);
+
+    const disableMenu = computed(() => {
+      if (!props.selected) return true;
+      else if (Array.isArray(props.selected)) {
+        return props.selected.length <= 0;
+      } else return false;
+    });
 
     const getSize = useGetSize(() => props.small);
 
@@ -204,6 +221,7 @@ export default defineComponent({
       paginationData,
       colspan,
       isAllSelected,
+      disableMenu,
       handleSelectAll,
       handleSelect,
       isSelected,

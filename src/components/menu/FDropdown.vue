@@ -1,36 +1,40 @@
 <template>
-  <div class="relative inline-block">
+  <div class="inline-block">
     <button
+      id="trigger"
+      ref="trigger"
+      class="f-trigger"
+      aria-describedby="menu"
+      @click="show"
       :disabled="disabled"
-      class="disabled:(opacity-50 cursor-default)"
-      @click="handleShow"
     >
-      <slot>Menu</slot>
+      <slot />
     </button>
 
-    <ul ref="target" :class="['f-dropdown-menu', canShow ? 'block' : 'hidden']">
-      <li
-        v-for="item in items"
-        :key="item.key"
-        :class="['f-dropdown-item', `f-dropdown-${size}`]"
-        @click="handleClick(item.key)"
-      >
-        <Icon :icon="item.icon" class="w-4 h-4" />
-        <span>
-          <slot :name="`item(${item.key})`">{{ item.label }}</slot>
-        </span>
-      </li>
-    </ul>
+    <div id="menu" ref="menu" role="menu">
+      <ul>
+        <li
+          v-for="item in items"
+          :key="item.key"
+          class="f-menu"
+          @click="handleClick(item)"
+        >
+          <Icon v-if="item.icon" :icon="item.icon" class="w-5 h-5" />
+          <span>{{ item.label }}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { Icon } from "@iconify/vue";
 import type { DropdownItem, Size } from "@/types";
-import type { PropType } from "vue";
+import { createPopper, type Instance } from "@popperjs/core";
+import { PropType } from "vue";
 
 export default defineComponent({
-  name: "FDropdown",
+  name: "FMenu",
 
   components: { Icon },
 
@@ -59,52 +63,104 @@ export default defineComponent({
   },
 
   setup(props, { emit }) {
-    const show = ref(false);
+    const trigger = ref<Element>();
+    const menu = ref<HTMLElement>();
+    let popperInstance: Instance;
 
-    const target = ref(null);
+    const show = () => {
+      if (!menu.value) return;
+      menu.value.setAttribute("data-show", "");
 
-    const canShow = computed(() => {
-      if (props.disabled) return false;
-      return show.value;
+      // Enable the event listeners
+      popperInstance.setOptions((options) => ({
+        ...options,
+        modifiers: [
+          ...(options?.modifiers ? options?.modifiers : []),
+          { name: "eventListeners", enabled: true },
+        ],
+      }));
+
+      popperInstance.update();
+    };
+
+    const hide = () => {
+      if (!menu.value) return;
+      menu.value.removeAttribute("data-show");
+
+      popperInstance.setOptions((options) => ({
+        ...options,
+        modifiers: [
+          ...(options?.modifiers ? options?.modifiers : []),
+          { name: "eventListeners", enabled: false },
+        ],
+      }));
+    };
+
+    onClickOutside(menu, (_) => hide());
+
+    const router = useRouter();
+
+    const handleClick = (item: DropdownItem) => {
+      if (!item.to) emit("key", item.key);
+      else router.push(item.to);
+      hide();
+    };
+
+    onMounted(() => {
+      if (!trigger.value) return;
+      if (!menu.value) return;
+
+      popperInstance = createPopper(trigger.value, menu.value, {
+        placement: "bottom",
+        modifiers: [
+          // {
+          //   name: "offset",
+          //   options: {
+          //     offset: [0, 8],
+          //   },
+          // },
+          {
+            name: "preventOverflow",
+            options: {
+              padding: 8,
+            },
+          },
+        ],
+      });
     });
 
-    onClickOutside(target, (_) => (show.value = false));
-
-    const handleShow = () => {
-      show.value = !show.value;
+    return {
+      trigger,
+      menu,
+      show,
+      handleClick,
     };
-
-    const handleClick = (e?: string) => {
-      emit("key", e);
-      show.value = false;
-    };
-
-    return { show, target, canShow, handleShow, handleClick };
   },
 });
 </script>
 
 <style scoped>
-.f-dropdown-menu {
-  @apply absolute z-50 bg-white;
-  @apply shadow p-2 rounded-sm;
+#trigger {
+  @apply inline-block;
 }
 
-.f-dropdown-item {
-  @apply text-sm text-gray-600 tracking-wide p-2 w-35;
-  @apply hover:(bg-gray-100 cursor-pointer);
-  @apply flex items-center gap-2;
+#menu {
+  @apply hidden bg-white text-gray-800;
+  @apply text-xs rounded-sm p-2 shadow z-10;
 }
 
-.f-dropdown-sm {
-  @apply w-35;
+#menu[data-show] {
+  @apply block;
 }
 
-.f-dropdown-md {
-  @apply w-50;
+.f-menu {
+  @apply p-2 rounded-sm text-sm uppercase tracking-widest;
+  @apply whitespace-nowrap overflow-hidden text-gray-600;
+  @apply hover:(bg-gray-200 cursor-pointer bg-opacity-40);
+  @apply flex flex-nowrap items-center  gap-3 transition-all;
 }
 
-.f-dropdown-lg {
-  @apply w-60;
+.f-trigger {
+  @apply disabled:(cursor-default opacity-50);
 }
 </style>

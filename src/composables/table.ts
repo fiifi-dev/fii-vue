@@ -82,6 +82,13 @@ export const useTableSelected = (
       }
       emit("update:selected", items);
     } else {
+      if (Array.isArray(selected?.value)) return;
+      if (!idField?.value) return;
+
+      if (selected?.value?.[idField.value] === value?.[idField.value]) {
+        return emit("update:selected", undefined);
+      }
+
       emit("update:selected", value);
     }
   };

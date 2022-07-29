@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import FTestMenu from "./components/menu/FTestMenu.vue";
+import FTestMenu from "./components/menu/FDropdown.vue";
 import { DropdownItem } from "./types";
 
 const items: DropdownItem[] = [
