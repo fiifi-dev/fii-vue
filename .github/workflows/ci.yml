@@ -20,6 +20,10 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
+      - name: Setup Github Config
+        run: |
+          git config --global user.email "fiifi.dev@gmail.com"
+          git config --global user.name "Dickson Afful"
       - uses: actions/checkout@v2
       - uses: borales/actions-yarn@v3.0.0
         with:
@@ -27,13 +31,17 @@ jobs:
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: build # will run `yarn build` command
-          
-  publish:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
       - uses: borales/actions-yarn@v3.0.0
         with:
           auth-token: ${{ secrets.NPM_TOKEN }}
           cmd: publish
+          
+  # publish:
+  #   needs: build
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: borales/actions-yarn@v3.0.0
+  #       with:
+  #         auth-token: ${{ secrets.NPM_TOKEN }}
+  #         cmd: publish
