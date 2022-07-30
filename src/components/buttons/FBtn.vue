@@ -9,6 +9,7 @@
       ...makeTextSize(size),
       ...makePaddingY(size),
     ]"
+    @click="$emit('click')"
   >
     <slot />
   </button>
@@ -41,6 +42,10 @@ export default defineComponent({
       required: false,
       default: false,
     },
+  },
+
+  emits: {
+    click: () => true,
   },
 
   setup() {
