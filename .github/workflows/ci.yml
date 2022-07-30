@@ -23,7 +23,8 @@ jobs:
       - name: Setup Github Config
         run: |
           git config --global user.email "fiifi.dev@gmail.com"
-          git config --global user.name "Dickson Afful"
+          git config --global user.name "Dickson Afful
+          git config --global --add safe.directory /github/workspace"
       - uses: actions/checkout@v2
       - uses: borales/actions-yarn@v3.0.0
         with:
