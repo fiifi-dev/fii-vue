@@ -1,6 +1,6 @@
 {
   "name": "fii-vue",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "license": "MIT",
   "private": false,
   "repository": "git@github.com:fiifi-dev/fii-vue.git",
@@ -34,7 +34,8 @@
     "windicss": "^3.5.6"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "types": "./dist/index.d.ts",
   "module": "./dist/fii-vue.es.js",
