@@ -23,14 +23,14 @@ jobs:
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v3.0.0
-        with:
-          cmd: build # will run `yarn build` command
-        uses:  'phips28/gh-action-bump-version@master'
-        env:
-          GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
-        with:
-          default: prerelease
+      # - uses: borales/actions-yarn@v3.0.0
+      #   with:
+      #     cmd: build # will run `yarn build` command
+      #   uses:  'phips28/gh-action-bump-version@master'
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
+      #   with:
+      #     default: prerelease
       - uses: actions/checkout@v3
       - uses: borales/actions-yarn@v3.0.0
         with:
