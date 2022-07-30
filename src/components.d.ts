@@ -9,6 +9,7 @@ declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     FAdminContent: typeof import('./components/layouts/FAdminContent.vue')['default']
     FAdminLayout: typeof import('./components/layouts/FAdminLayout.vue')['default']
+    FAdminPage: typeof import('./components/layouts/FAdminPage.vue')['default']
     FAuthCenterLayout: typeof import('./components/layouts/FAuthCenterLayout.vue')['default']
     FAuthSidedLayout: typeof import('./components/layouts/FAuthSidedLayout.vue')['default']
     FBtn: typeof import('./components/buttons/FBtn.vue')['default']

@@ -1,7 +1,7 @@
 <template>
-  <div class="">
-    <FTestMenu :items="items">Click Me</FTestMenu>
-  </div>
+  <FAdminLayout>
+    <FAdminPage> sdfsdf </FAdminPage>
+  </FAdminLayout>
 </template>
 
 <script setup lang="ts">
