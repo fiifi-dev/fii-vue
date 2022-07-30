@@ -45,7 +45,5 @@
     },
     "./dist/style.css": "./dist/style.css"
   },
-  "dependencies": {
-    "remove": "^0.1.5"
-  }
+  "dependencies": {}
 }
