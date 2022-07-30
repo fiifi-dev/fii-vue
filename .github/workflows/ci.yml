@@ -27,12 +27,12 @@ jobs:
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: build # will run `yarn build` command
-      - uses: borales/actions-yarn@v3.0.0
       - name: Setup Github Config
         run: |
           git config --global user.email "fiifi.dev@gmail.com"
           git config --global user.name "Dickson Afful
           git config --global --add safe.directory /__w/fii-vue/fii-vue"
+      - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: version --patch
       - uses: borales/actions-yarn@v3.0.0
