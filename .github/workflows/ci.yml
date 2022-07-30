@@ -33,7 +33,7 @@ jobs:
           cmd: build # will run `yarn build` command
       - uses: borales/actions-yarn@v3.0.0
         with:
-          cmd: publish --patch # will run `yarn build` command
+          cmd: version --patch
       - uses: borales/actions-yarn@v3.0.0
         with:
           auth-token: ${{ secrets.NPM_TOKEN }}
