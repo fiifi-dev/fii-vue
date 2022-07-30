@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-    needs: version
     runs-on: ubuntu-latest
 
     strategy:
@@ -27,16 +26,6 @@ jobs:
       - uses: borales/actions-yarn@v3.0.0
         with:
           cmd: build # will run `yarn build` command
-      - uses: borales/actions-yarn@v3.0.0
-        with:
-          auth-token: ${{ secrets.NPM_TOKEN }}
-          cmd: publish
-          
-  version:
-    runs-on: ubuntu-latest
-    steps:
-      - name:  'Automated Version Bump'
-      - uses: actions/checkout@v3
         uses:  'phips28/gh-action-bump-version@master'
         env:
           GITHUB_TOKEN: ${{ secrets.REPO_TOKEN }}
@@ -46,3 +35,9 @@ jobs:
           patch-wording:  'patch,fixes'     # Providing patch-wording will override commits
                                             # defaulting to a patch bump.
           rc-wording:     'RELEASE,alpha'
+      - uses: actions/checkout@v3
+      - uses: borales/actions-yarn@v3.0.0
+        with:
+          auth-token: ${{ secrets.NPM_TOKEN }}
+          cmd: publish
+          
