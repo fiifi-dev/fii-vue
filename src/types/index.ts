@@ -41,7 +41,7 @@ export type DropdownItem = {
 };
 
 export type MenuItem = {
-  icon?: string;
+  icon?: string|Component;
   label: string;
   key?: string;
   to: RouteLocationRaw;

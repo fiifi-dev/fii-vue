@@ -14,7 +14,7 @@
         ]"
         @click="navigate"
       >
-        <Icon :icon="item.icon" class="w-5 h-5" />
+        <Component :is="item.icon" class="w-5 h-5" />
         <span v-if="!collapse">{{ item.label }}</span>
       </div>
     </RouterLink>
