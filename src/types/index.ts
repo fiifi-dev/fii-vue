@@ -34,14 +34,14 @@ export type Tab = {
 };
 
 export type DropdownItem = {
-  icon?:  string;
+  icon?: string | Component;
   label: string;
   key: string;
   to?: RouteLocationRaw;
 };
 
 export type MenuItem = {
-  icon?: string|Component;
+  icon?: string | Component;
   label: string;
   key?: string;
   to: RouteLocationRaw;

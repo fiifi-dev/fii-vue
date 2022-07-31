@@ -17,7 +17,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-       WindiCSS(),
+    WindiCSS(),
     dts(),
     AutoImport({
       imports: [
@@ -69,7 +69,7 @@ export default defineConfig({
   },
 
   optimizeDeps: {
-    include: ["@popperjs/core", "deep-diff", "@types/deep-diff"],
+    include: ["@popperjs/core", "deep-diff",],
   },
 
   build: {

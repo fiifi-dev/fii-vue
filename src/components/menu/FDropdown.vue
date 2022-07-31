@@ -19,7 +19,7 @@
           class="f-menu"
           @click="handleClick(item)"
         >
-          <Icon v-if="item.icon" :icon="item.icon" class="w-5 h-5" />
+          <Component v-if="item.icon" :is="item.icon" class="w-4 h-4" />
           <span>{{ item.label }}</span>
         </li>
       </ul>
@@ -28,7 +28,6 @@
 </template>
 
 <script lang="ts">
-import { Icon } from "@iconify/vue";
 import type { DropdownItem, Size } from "@/types";
 import { createPopper, type Instance } from "@popperjs/core";
 import { PropType } from "vue";
@@ -36,7 +35,7 @@ import { PropType } from "vue";
 export default defineComponent({
   name: "FMenu",
 
-  components: { Icon },
+
 
   props: {
     size: {

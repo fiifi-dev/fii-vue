@@ -22,14 +22,11 @@
 </template>
 
 <script lang="ts">
-import { Icon } from "@iconify/vue";
 import { MenuItem } from "@/types";
-import type{  PropType, } from "vue";
+import type { PropType } from "vue";
 
 export default defineComponent({
   name: "FMenu",
-
-  components: { Icon },
 
   props: {
     items: {

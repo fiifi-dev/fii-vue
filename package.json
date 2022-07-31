@@ -1,6 +1,6 @@
 {
   "name": "fii-vue",
-  "version": "0.0.1-alpha.19",
+  "version": "0.0.1-alpha.20",
   "license": "MIT",
   "private": false,
   "repository": "git@github.com:fiifi-dev/fii-vue.git",
@@ -15,7 +15,6 @@
     "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@iconify/vue": "^3.2.1",
     "@popperjs/core": "^2.11.5",
     "@types/deep-diff": "^1.0.1",
     "@vitejs/plugin-vue": "^3.0.0",
