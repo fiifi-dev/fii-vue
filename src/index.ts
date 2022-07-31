@@ -28,6 +28,7 @@ export { default as FAuthCenterLayout } from "./components/layouts/FAuthCenterLa
 export { default as FAuthSidedLayout } from "./components/layouts/FAuthSidedLayout.vue";
 export { default as FSpace } from "./components/layouts/FSpace.vue";
 export { default as FAdminPage } from "./components/layouts/FAdminPage.vue";
+export { default as FErrorLayout } from "./components/layouts/FErrorLayout.vue";
 
 // cards
 export { default as FCard } from "./components/cards/FCard.vue";
