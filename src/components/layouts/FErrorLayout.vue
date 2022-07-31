@@ -6,7 +6,7 @@
           {{ status }}
         </h2>
 
-        <h1 class="text-xl text-gray-400">Page Not Found</h1>
+        <h1 class="text-xl text-gray-400">{{ messages[status] }}</h1>
       </div>
     </slot>
   </div>
@@ -31,7 +31,7 @@ export default defineComponent({
       404: "Page Not Found: Whoops, nothing to see here",
       500: "Internal Server Error: Something went wrong",
     }));
-    return {};
+    return { messages };
   },
 });
 </script>
