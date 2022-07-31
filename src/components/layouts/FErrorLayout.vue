@@ -1,8 +1,8 @@
 <template>
-  <div class="h-screen w-full p-10 bg-gradient-to-r from-gray-50 to-light-100">
+  <div class="h-screen w-full">
     <slot>
       <div class="m-auto flex flex-col gap-5">
-        <h2 class="text-10xl font-bold">
+        <h2 class="text-5xl">
           {{ status }}
         </h2>
 

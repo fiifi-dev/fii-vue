@@ -21,15 +21,7 @@
           @click="$emit('search')"
         />
 
-        <div class="flex items-center gap-4">
-          <button
-            v-if="showReset"
-            class="text-gray-700"
-            @click="$emit('reset')"
-          >
-            <IFiiClockwise class="w-4 h-4" />
-          </button>
-
+        <div>
           <slot name="actions">
             <FDropdown
               :items="actionMenu"
@@ -163,12 +155,6 @@ export default defineComponent({
       default: false,
     },
 
-    showReset: {
-      type: Boolean,
-      required: false,
-      default: true,
-    },
-
     showPagination: {
       type: Boolean,
       required: false,
@@ -201,7 +187,6 @@ export default defineComponent({
     search: (_value?: string) => true,
     action: (_value?: string) => true,
     create: () => true,
-    reset: () => true,
   },
 
   setup(props, { emit }) {
@@ -219,8 +204,10 @@ export default defineComponent({
 
     const getSize = useGetSize(() => props.small);
 
-    const pageSizeValue = useVModel(props, "pageSize", emit);
-    const pageValue = useVModel(props, "page", emit);
+  
+
+    const pageSizeValue = useVModel(props,'pageSize',emit);
+    const pageValue = useVModel(props,'page',emit);
 
     return {
       wrapperStyles,
