@@ -36,6 +36,7 @@ declare module '@vue/runtime-core' {
     FToast: typeof import('./components/messages/FToast.vue')['default']
     FTooltip: typeof import('./components/menu/FTooltip.vue')['default']
     IFiiCaretDown: typeof import('~icons/fii/caret-down')['default']
+    IFiiClockwise: typeof import('~icons/fii/clockwise')['default']
     IFiiClose: typeof import('~icons/fii/close')['default']
     IFiiMenu: typeof import('~icons/fii/menu')['default']
     IFiiPerson: typeof import('~icons/fii/person')['default']
