@@ -76,6 +76,7 @@ declare global {
   const useConfirm: typeof import('./composables/confirm')['useConfirm']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
+  const useDeepDiff: typeof import('./composables/deep-diff')['useDeepDiff']
   const useEventBus: typeof import('@vueuse/core')['useEventBus']
   const useFormGroup: typeof import('./composables/forms')['useFormGroup']
   const useGetSize: typeof import('./composables/utils')['useGetSize']

@@ -1,6 +1,6 @@
 <template>
-  <div class="w-full h-full flex items-center justify-center">
-    <div :style="styles">
+  <div class="w-full h-full flex items-center justify-center p-5">
+    <div :style="styles" class="m-auto">
       <slot />
     </div>
   </div>
@@ -16,7 +16,7 @@ export default defineComponent({
     width: {
       type: String,
       required: false,
-      default: "10rem",
+      default: "20rem",
       validator: (value: string) => {
         const test = new RegExp("^\\d+(px|em|rem)$").test(value);
         if (!test)
@@ -27,7 +27,7 @@ export default defineComponent({
   },
   setup(props) {
     const styles = computed<StyleValue>(() => ({
-      width: props.width,
+      flexBasis: props.width,
     }));
 
     return { styles };

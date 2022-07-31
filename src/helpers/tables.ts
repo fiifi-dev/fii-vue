@@ -1,5 +1,5 @@
 import type { PropType } from "vue";
-import type { Numeric, Pagination, TableHeader } from "@/types";
+import type { TableHeader } from "@/types";
 
 export const makeSimpleTableProps = propsFactory({
   headers: {
@@ -64,29 +64,41 @@ export const makeSimpleTableProps = propsFactory({
 
 export const makePaginationProps = propsFactory({
   pageSizes: {
-    type: Array as PropType<Numeric[]>,
+    type: Array as PropType<number[]>,
     required: false,
     default: () => [5, 10, 15, 20, 30],
   },
 
-  count: {
-    type: [Number, String],
+  page: {
+    type: Number,
     required: false,
-    default: 0,
+    default: 1,
+    validator: (value: number) => {
+      return value > 0;
+    }
   },
 
-  pagination: {
-    type: Object as PropType<Pagination>,
+  pageSize: {
+    type: Number,
     required: false,
-    default: () => ({
-      offset: 0,
-      limit: 10,
-    }),
+    default: 10,
+    validator: (value: number) => {
+      return value > 0;
+    }
   },
+
+  total: {
+    type: Number,
+    required: false,
+    default: 0
+  },
+
+
 });
 
 export const makePaginationEmits = () => ({
-  "update:pagination": (_data: Pagination) => true,
+  "update:page": (_page: number) => true,
+  "update:pageSize": (_size: number) => true,
 });
 
 export const makeTableEmits = () => ({

@@ -115,9 +115,10 @@
     >
       <slot name="pagination">
         <FPagination
-          v-model:pagination="paginationData"
+          v-model:page="pageValue"
+          v-model:pageSize="pageSizeValue"
           :page-sizes="pageSizes"
-          :count="count"
+          :total="total"
         />
       </slot>
     </div>
@@ -203,22 +204,18 @@ export default defineComponent({
 
     const getSize = useGetSize(() => props.small);
 
-    const paginationData = computed<Pagination>({
-      get() {
-        return props.pagination;
-      },
+  
 
-      set(val) {
-        emit("update:pagination", val);
-      },
-    });
+    const pageSizeValue = useVModel(props,'pageSize',emit);
+    const pageValue = useVModel(props,'page',emit);
 
     return {
       wrapperStyles,
       rowClass,
       thClass,
       getSize,
-      paginationData,
+      pageSizeValue,
+      pageValue,
       colspan,
       isAllSelected,
       disableMenu,

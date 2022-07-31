@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-nowrap gap-5 items-center">
-    <select v-model="perPage" class="f-form-control pl-2 py-1 text-sm">
+    <select v-model="pageSizeValue" class="f-form-control pl-2 py-1 text-sm">
       <option v-for="pageSize in pageSizes" :key="pageSize" :value="pageSize">
         {{ pageSize }}
       </option>
@@ -14,7 +14,7 @@
       Prev
     </button>
 
-    <div class="text-gray-500 text-sm">{{ offset }}/{{ count }}</div>
+    <div class="text-gray-500 text-sm">{{ page }}/{{ total }}</div>
 
     <button
       :disabled="!hasNext"
@@ -38,46 +38,32 @@ export default defineComponent({
     ...makePaginationEmits(),
   },
   setup(props, { emit }) {
-    const offset = computed(() => getNumber(props.pagination.offset) || 0);
-    const limit = computed(() => getNumber(props.pagination.limit) || 10);
-    const count = computed(() => getNumber(props.count) || 0);
+    const { page, pageSize, total } = toRefs(props);
 
-    const hasNext = computed(() => limit.value * offset.value < count.value);
-    const hasPrev = computed(() => offset.value > 1);
+    const hasNext = computed(() => page.value * pageSize.value < total.value);
+    const hasPrev = computed(() => page.value > 1);
 
-    const perPage = computed({
-      get() {
-        return limit.value;
-      },
+    const handlePageChange = (action: "next" | "prev" = "next") => {
+      let newPage = page.value || 1;
 
-      set(val: number | string) {
-        emit("update:pagination", {
-          limit: val,
-          offset: 1,
-        });
+      if (action === "next" && hasNext.value) newPage++;
+      else if (action === "prev" && hasPrev.value) newPage--;
+
+      emit("update:page", newPage);
+    };
+
+    const pageSizeValue = computed({
+      get: () => props.pageSize,
+      set: (size: number) => {
+        emit("update:page", 1);
+        emit("update:pageSize", size);
       },
     });
 
-    const handlePageChange = (action: "next" | "prev" = "next") => {
-      let newOffset = offset.value || 1;
-
-      if (action === "next" && hasNext.value) newOffset++;
-      else if (action === "prev" && hasPrev.value) newOffset--;
-
-      const data = {
-        limit: limit.value,
-        offset: newOffset,
-      };
-
-      emit("update:pagination", data);
-    };
-
     return {
-      perPage,
       hasPrev,
       hasNext,
-      limit,
-      offset,
+      pageSizeValue,
       handlePageChange,
     };
   },
@@ -86,6 +72,6 @@ export default defineComponent({
 
 <style scoped>
 .btn-pagination {
-  @apply uppercase text-sm tracking-wider disabled:(opacity-40 cursor-default);
+  @apply uppercase text-sm tracking-wider disabled: (opacity-40 cursor-default);
 }
 </style>

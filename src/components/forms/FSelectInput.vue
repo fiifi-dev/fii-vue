@@ -1,7 +1,7 @@
 <template>
   <FFormGroup v-bind="formGroupAttrs">
     <select
-      :value="value"
+      v-model="value"
       :multiple="multiple"
       :disabled="disabled"
       :class="makeSelectClass({ size: size, block: block })"
