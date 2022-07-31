@@ -18,6 +18,9 @@ export { useToast } from "./composables/toast";
 export { useDeepDiff } from "./composables/deep-diff";
 export { useGoTo, useIsUpdate } from "./composables/save";
 
+// Utils
+export { deepCopy, isExpiredToken, uuid } from "./helpers/utils";
+
 // layouts
 export { default as FAdminContent } from "./components/layouts/FAdminContent.vue";
 export { default as FAdminLayout } from "./components/layouts/FAdminLayout.vue";

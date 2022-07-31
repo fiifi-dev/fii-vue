@@ -1,3 +1,4 @@
+import jwt_decode from "jwt-decode";
 import { Size } from "@/types/index";
 
 export const getObjSubset = <V extends Record<string, any>, K extends keyof V>(
@@ -65,3 +66,13 @@ export const makePaddingY = (size: Size | boolean) => {
 export const uuid = () => {
   return Math.random().toString(16).slice(2);
 };
+
+export const isExpiredToken = (token?: string) => {
+  if (!token) return true;
+
+  const { exp } = jwt_decode<{ exp: number }>(token);
+  const now = new Date().getTime() / 1000;
+
+  return exp < now;
+};
+
