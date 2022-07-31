@@ -31,6 +31,9 @@ export { default as FCard } from "./components/cards/FCard.vue";
 // drawers
 export { default as FDrawer } from "./components/drawers/FDrawer.vue";
 
+// grid
+export { default as FAutoCols } from "./components/grid/FAutoCols.vue";
+
 // forms
 export { default as FCheckbox } from "./components/forms/FCheckbox.vue";
 export { default as FFileInput } from "./components/forms/FFileInput.vue";
