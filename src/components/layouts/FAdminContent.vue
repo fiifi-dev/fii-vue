@@ -10,7 +10,7 @@
       >
         <slot :name="`tab(${tab.key})`" :tab="tab" :index="index">
           <div
-            class="px-6 text-sm tracking-wider h-full flex items-center"
+            class="f-tab-item"
             :class="{ 'border-primary-100 border-b': isExactActive }"
             @click="navigate"
           >
@@ -56,5 +56,10 @@ export default defineComponent({
 .f-tabs {
   @apply bg-white border flex items-center flex-nowrap;
   @apply overflow-y-hidden overflow-x-auto px-5;
+}
+
+.f-tab-item {
+  @apply px-6 text-xs tracking-wider h-full flex items-center;
+  @apply uppercase hover:cursor-pointer text-gray-600;
 }
 </style>
