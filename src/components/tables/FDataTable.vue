@@ -18,7 +18,7 @@
         <FSearchInput
           placeholder="Search items"
           :size="getSize"
-          @click="$emit('search')"
+          v-model="searchValue"
         />
 
         <div class="flex items-center gap-4">
@@ -151,6 +151,13 @@ export default defineComponent({
         { key: "delete", label: "Delete" },
       ],
     },
+
+    search: {
+      type: String,
+      required: false,
+      default: "",
+    },
+
     title: {
       type: String,
       required: false,
@@ -198,7 +205,7 @@ export default defineComponent({
   emits: {
     ...makePaginationEmits(),
     ...makeTableEmits(),
-    search: (_value?: string) => true,
+    "update:search": (_value?: string) => true,
     action: (_value?: string) => true,
     create: () => true,
     reset: () => true,
@@ -221,6 +228,7 @@ export default defineComponent({
 
     const pageSizeValue = useVModel(props, "pageSize", emit);
     const pageValue = useVModel(props, "page", emit);
+    const searchValue = useVModel(props, "search", emit);
 
     return {
       wrapperStyles,
@@ -229,6 +237,7 @@ export default defineComponent({
       getSize,
       pageSizeValue,
       pageValue,
+      searchValue,
       colspan,
       isAllSelected,
       disableMenu,

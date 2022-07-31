@@ -1,6 +1,11 @@
 <template>
   <FAdminLayout>
-    <FDataTable :headers="headers" show-border @create="handle()" />
+    <FDataTable
+      v-model:search="search"
+      :headers="headers"
+      show-border
+      @create="handle()"
+    />
   </FAdminLayout>
 </template>
 
@@ -14,6 +19,8 @@ const headers: TableHeader[] = [
   { key: "email", label: "Email" },
   { key: "role_label", label: "Role" },
 ];
+
+const search = ref("");
 
 const handle = () => {
   console.log("hello world");
