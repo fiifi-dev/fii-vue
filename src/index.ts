@@ -16,6 +16,7 @@ export type {
 export { useConfirm } from "./composables/confirm";
 export { useToast } from "./composables/toast";
 export { useDeepDiff } from "./composables/deep-diff";
+export { useGoTo, useIsUpdate } from "./composables/save";
 
 // layouts
 export { default as FAdminContent } from "./components/layouts/FAdminContent.vue";
