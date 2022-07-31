@@ -12,7 +12,7 @@ export default defineComponent({
 
   props: {
     cols: {
-      type: Number as PropType<2 | 3 | 4 | 5 | 6>,
+      type: Number as PropType<1 | 2 | 3 | 4 | 5 | 6>,
       required: false,
       default: 2,
     },
@@ -24,6 +24,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.cols-1 {
+  @apply grid-cols-1;
+}
+
 .cols-2 {
   @apply grid-cols-1 lg:grid-cols-2;
 }
