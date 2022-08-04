@@ -36,7 +36,7 @@
 
     <div
       :class="[
-        'text-gray-600 text-xs text-ellipsis p-1 inline-block',
+        'text-gray-600 text-xs text-ellipsis p-1 inline-block truncate',
         block ? 'w-full' : 'max-w-xs',
         url ? 'hover:cursor-pointer' : '',
       ]"
