@@ -87,6 +87,7 @@ export default defineConfig({
         // for externalized deps (not useful if 'umd' is not in lib.formats)
         globals: {
           vue: "Vue",
+          "vue-router": "VueRouter",
         },
       },
     },

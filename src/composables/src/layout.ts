@@ -1,4 +1,4 @@
-import { Size } from "@/types/general";
+import { Size } from "../../types/general";
 
 export const useLayout = (
   props: () => { size?: Size; block?: boolean }

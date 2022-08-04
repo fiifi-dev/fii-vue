@@ -1,5 +1,5 @@
 import type { PropType } from "vue";
-import type { TableHeader } from "@/types/general";
+import type { TableHeader } from "../../types/general";
 
 export const makeSimpleTableProps = propsFactory({
   headers: {

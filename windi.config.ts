@@ -26,9 +26,9 @@ export default defineConfig({
         },
 
         warning: {
-          100: colors.green["600"],
-          200: colors.green["700"],
-          300: colors.green["800"],
+          100: colors.yellow["600"],
+          200: colors.yellow["700"],
+          300: colors.yellow["800"],
         },
 
         secondary: {

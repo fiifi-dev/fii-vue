@@ -1,5 +1,5 @@
 import type { PropType } from "vue";
-import type { SelectOption, Size } from "@/types/general";
+import type { SelectOption, Size } from "../../types/general";
 
 export type InputType =
   | "date"

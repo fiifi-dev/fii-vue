@@ -1,4 +1,4 @@
-import { Size } from "@/types/general";
+import { Size } from "../../types/general";
 
 export const useGetSize = (size: () => Size | boolean) => {
   // set to boolean true if small

@@ -1,5 +1,5 @@
 import jwt_decode from "jwt-decode";
-import { Size } from "@/types/general";
+import { Size } from "../../types/general";
 
 export const getObjSubset = <V extends Record<string, any>, K extends keyof V>(
   obj: V,

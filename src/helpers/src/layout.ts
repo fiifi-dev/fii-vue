@@ -1,4 +1,4 @@
-import type { Size } from "@/types/general";
+import type { Size } from "../../types/general";
 import type { PropType, StyleValue } from "vue";
 
 export const makeLayoutProps = propsFactory({

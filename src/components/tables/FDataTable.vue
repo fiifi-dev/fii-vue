@@ -134,7 +134,7 @@
 </template>
 
 <script lang="ts">
-import type { DropdownItem, Pagination } from "@/types/general";
+import type { DropdownItem, Pagination } from "../../types/general";
 import { PropType } from "vue";
 
 export default defineComponent({

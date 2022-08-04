@@ -23,6 +23,7 @@ declare module '@vue/runtime-core' {
     FErrorLayout: typeof import('./components/layouts/FErrorLayout.vue')['default']
     FFileInput: typeof import('./components/forms/FFileInput.vue')['default']
     FFormGroup: typeof import('./components/forms/FFormGroup.vue')['default']
+    FImg: typeof import('./components/media/FImg.vue')['default']
     FMenu: typeof import('./components/menu/FMenu.vue')['default']
     FModal: typeof import('./components/modals/FModal.vue')['default']
     FPagination: typeof import('./components/tables/FPagination.vue')['default']

@@ -67,7 +67,7 @@
 </template>
 
 <script lang="ts">
-import type { MenuItem } from "@/types/general";
+import type { MenuItem } from "../../types/general";
 import type { PropType, StyleValue } from "vue";
 
 export default defineComponent({

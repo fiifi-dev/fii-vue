@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import type { DropdownItem, Size } from "@/types/general";
+import type { DropdownItem, Size } from "../../types/general";
 import { createPopper, type Instance } from "@popperjs/core";
 import { PropType } from "vue";
 
