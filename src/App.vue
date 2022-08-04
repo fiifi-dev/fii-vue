@@ -5,8 +5,7 @@
 </template>
 
 <script setup lang="ts">
-// import '../dist/style.css';
-// import { FFileInput from "@/components/forms/FFileInput.vue";
+import '../dist/style.css';
 
 // const headers: TableHeader[] = [
 //   { key: "full_name", label: "Full Name" },

@@ -116,7 +116,7 @@ export default defineComponent({
       if (!files) return;
 
       if (files?.length > 1) return `${files.length} files`;
-      else return getTruncatedFilename(files?.[0]?.name);
+      else return getTruncatedFilename(files?.name);
     });
 
     const handleChange = (e: Event) => {
