@@ -19,7 +19,15 @@ export { useDeepDiff } from "./composables/deep-diff";
 export { useGoTo, useIsUpdate } from "./composables/save";
 
 // Utils
-export { deepCopy, isExpiredToken, uuid } from "./helpers/utils";
+export {
+  deepCopy,
+  isExpiredToken,
+  uuid,
+  pickedObj,
+  parseObjAsFormData,
+  removeEmptyKeys,
+  objHasFile,
+} from "./helpers/utils";
 
 // layouts
 export { default as FAdminContent } from "./components/layouts/FAdminContent.vue";
@@ -48,6 +56,7 @@ export { default as FRadioButton } from "./components/forms/FRadioButton.vue";
 export { default as FSearchInput } from "./components/forms/FSearchInput.vue";
 export { default as FSelectInput } from "./components/forms/FSelectInput.vue";
 export { default as FTextInput } from "./components/forms/FTextInput.vue";
+export { default as FTextarea } from "./components/forms/FTextarea.vue";
 
 // menu
 export { default as FDropdown } from "./components/menu/FDropdown.vue";
@@ -67,3 +76,6 @@ export { default as FSimpleTable } from "./components/tables/FSimpleTable.vue";
 
 // button
 export { default as FBtn } from "./components/buttons/FBtn.vue";
+
+// resolver
+export { FiiVueResolver } from "./helpers/resolver";

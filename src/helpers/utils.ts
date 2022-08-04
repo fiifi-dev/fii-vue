@@ -76,3 +76,44 @@ export const isExpiredToken = (token?: string) => {
   return exp < now;
 };
 
+
+
+export const pickedObj = <T>(keys: (keyof T)[], obj: T) => {
+  const picked: Partial<T> = {};
+  for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    picked[key] = obj[key];
+  }
+  return picked;
+};
+
+
+export const parseObjAsFormData = (obj: Record<string, any>) => {
+  const formData = new FormData();
+
+  for (const key in obj) {
+    const data = obj[key];
+    formData.append(key, data);
+  }
+
+  return formData;
+};
+
+export const removeEmptyKeys = (obj: Record<string, any>) => {
+  const newObj: Record<string, any> = {};
+  for (const key in obj) {
+    const data = obj[key];
+    if (![null, undefined].includes(data)) newObj[key] = data;
+  }
+  return newObj;
+};
+
+export const objHasFile = (obj: Record<string, any>) => {
+  const newObj = removeEmptyKeys(obj);
+
+  for (const key in newObj) {
+    const data = obj[key];
+    if (data instanceof File || data instanceof FileList) return true;
+  }
+  return false;
+};

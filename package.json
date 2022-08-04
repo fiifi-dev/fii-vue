@@ -1,6 +1,6 @@
 {
   "name": "fii-vue",
-  "version": "0.0.1-alpha.22",
+  "version": "0.0.1-alpha.23",
   "license": "MIT",
   "private": false,
   "repository": "git@github.com:fiifi-dev/fii-vue.git",
@@ -35,6 +35,13 @@
     "vue-tsc": "^0.38.4",
     "windicss": "^3.5.6"
   },
+  "keywords": [
+    "fii-vue",
+    "component library",
+    "ui framework",
+    "ui",
+    "vue"
+  ],
   "files": [
     "dist",
     "src"

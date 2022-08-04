@@ -32,6 +32,7 @@ declare module '@vue/runtime-core' {
     FSelectInput: typeof import('./components/forms/FSelectInput.vue')['default']
     FSimpleTable: typeof import('./components/tables/FSimpleTable.vue')['default']
     FSpace: typeof import('./components/layouts/FSpace.vue')['default']
+    FTextarea: typeof import('./components/forms/FTextarea.vue')['default']
     FTextInput: typeof import('./components/forms/FTextInput.vue')['default']
     FToast: typeof import('./components/messages/FToast.vue')['default']
     FTooltip: typeof import('./components/menu/FTooltip.vue')['default']

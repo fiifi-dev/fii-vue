@@ -1,6 +1,6 @@
 <template>
-  <div :class="[showBorder ? 'border' : '']">
-    <div :class="['flex flex-col gap-5 mb-5', showBorder ? 'p-5' : '']">
+  <div :class="[{ 'bg-light-50': showBg }, { border: showBorder }]">
+    <div :class="['flex flex-col gap-5 mb-5 p-5']">
       <div class="flex flex-wrap justify-between items-center gap-5">
         <h3 v-if="showTitle && title" class="f-title">
           <slot name="title">
@@ -119,7 +119,7 @@
 
     <div
       v-if="showPagination"
-      :class="['py-10 flex items-center justify-end', showBorder ? 'px-5' : '']"
+      :class="['py-10 flex items-center justify-end px-5']"
     >
       <slot name="pagination">
         <FPagination
@@ -168,6 +168,12 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: false,
+    },
+
+    showBg: {
+      type: Boolean,
+      required: false,
+      default: true,
     },
 
     showReset: {

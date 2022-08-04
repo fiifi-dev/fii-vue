@@ -3,13 +3,14 @@
 }
 
 .f-table {
-  @apply table-auto w-full border-separate table;
+  @apply table-auto w-full border-separate table m-auto;
   border-spacing: 0;
 }
 
 .f-th {
   @apply text-left text-sm px-3 py-4 uppercase bg-gray-50;
-  @apply font-medium text-gray-600 tracking-wider border-b border-t border-gray-200;
+  @apply font-medium text-gray-600 tracking-wider border-b; 
+  @apply border-t border-gray-200;
 }
 
 .f-thead {
