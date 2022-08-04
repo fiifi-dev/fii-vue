@@ -45,3 +45,6 @@ export { default as FSimpleTable } from "./tables/FSimpleTable.vue";
 
 // button
 export { default as FBtn } from "./buttons/FBtn.vue";
+
+// media
+export { default as FImg } from "./media/FImg.vue";
