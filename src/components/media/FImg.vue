@@ -1,6 +1,7 @@
 <template>
   <img
     v-bind="$attrs"
+    :src="src"
     :loading="loading"
     :decoding="decoding"
     :fetchpriority="fetchpriority"
@@ -13,6 +14,10 @@ import type { PropType } from "vue";
 export default defineComponent({
   name: "FImg",
   props: {
+    src: {
+      type: String,
+      required: false,
+    },
     loading: {
       type: String as PropType<"lazy" | "eager">,
       required: false,
