@@ -15,7 +15,7 @@ export const useDeepDiff = <T>(values: () => Partial<T> | undefined) => {
     return true;
   });
 
-  const initializeClone = (values: T) => {
+  const initializeClone = (values: Partial<T>) => {
     clone.value = deepCopy(values);
   };
 
