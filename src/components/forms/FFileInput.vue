@@ -123,8 +123,10 @@ export default defineComponent({
       const target = e?.target as HTMLInputElement;
       const files = target?.files;
 
-      emit("update:modelValue", files);
-      emit("change", files);
+      const items = props.multiple ? files : files?.[0];
+
+      emit("update:modelValue", items);
+      emit("change", items);
     };
 
     return {
