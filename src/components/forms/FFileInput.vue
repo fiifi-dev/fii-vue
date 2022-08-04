@@ -1,47 +1,50 @@
 <template>
-  <FFormGroup v-bind="formGroupAttrs">
-    <template #default>
-      <div :class="['bg-gray-100', block ? 'w-full' : 'max-w-xs']">
-        <label
-          :class="['flex items-center m-auto', disabled ? 'opacity-60' : '']"
-        >
-          <div
-            :class="[
-              ...makeTextSize(size),
-              ...makePaddingY(size),
-              'bg-primary-200 px-3 text-white rounded-l-sm truncate',
-              'tracking-wider uppercase',
-            ]"
+  <div>
+    <FFormGroup v-bind="formGroupAttrs">
+      <template #default>
+        <div :class="['bg-gray-100', block ? 'w-full' : 'max-w-xs']">
+          <label
+            :class="['flex items-center m-auto', disabled ? 'opacity-60' : '']"
           >
-            Browse
-          </div>
-          <input
-            :disabled="disabled"
-            :multiple="multiple"
-            :accept="accept"
-            type="file"
-            class="hidden"
-            @change="handleChange"
-          />
-          <span :class="[...makeTextSize(size), 'text-gray-600 px-4 truncate']">
-            {{ fileName || placeholder || "Select file" }}
-          </span>
-        </label>
-      </div>
-    </template>
+            <div
+              :class="[
+                ...makeTextSize(size),
+                ...makePaddingY(size),
+                'bg-primary-200 px-3 text-white rounded-l-sm truncate',
+                'tracking-wider uppercase',
+              ]"
+            >
+              Browse
+            </div>
+            <input
+              :disabled="disabled"
+              :multiple="multiple"
+              :accept="accept"
+              type="file"
+              class="hidden"
+              @change="handleChange"
+            />
+            <span
+              :class="[...makeTextSize(size), 'text-gray-600 px-4 truncate']"
+            >
+              {{ fileName || placeholder || "Select file" }}
+            </span>
+          </label>
+        </div>
+      </template>
+    </FFormGroup>
 
-    <template #error>
-      <div
-        :class="[
-          'text-gray-600 text-ellipsis max-w-20',
-          url ? 'hover:cursor-pointer' : '',
-        ]"
-        @click="$emit('url', url)"
-      >
-        {{ url }}
-      </div>
-    </template>
-  </FFormGroup>
+    <div
+      :class="[
+        'text-gray-600 text-xs text-ellipsis p-1 inline-block',
+        block ? 'w-full' : 'max-w-xs',
+        url ? 'hover:cursor-pointer' : '',
+      ]"
+      @click="$emit('url', url)"
+    >
+      {{ url }}
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

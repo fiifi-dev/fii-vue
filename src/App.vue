@@ -1,11 +1,14 @@
 <template>
   <div class="p-10">
-    <FFileInput v-model="value" />
+    <FFileInput
+      v-model="value"
+      url=" is the same as string and the compiler aggressively reduces such unions to string. This is completely correct as far as type safety goes. But it's not great from the point of view of documentation or IntelliSense, as you've seen."
+    />
   </div>
 </template>
 
 <script setup lang="ts">
-import '../dist/style.css';
+import "../dist/style.css";
 
 // const headers: TableHeader[] = [
 //   { key: "full_name", label: "Full Name" },
