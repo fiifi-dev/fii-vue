@@ -25,6 +25,7 @@ declare global {
   const isReactive: typeof import('vue')['isReactive']
   const isReadonly: typeof import('vue')['isReadonly']
   const isRef: typeof import('vue')['isRef']
+  const isSavable: typeof import('./helpers/utils')['isSavable']
   const makeChangeEmits: typeof import('./helpers/forms')['makeChangeEmits']
   const makeFormGroupProps: typeof import('./helpers/forms')['makeFormGroupProps']
   const makeGeneralInputProps: typeof import('./helpers/forms')['makeGeneralInputProps']

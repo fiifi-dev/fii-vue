@@ -47,10 +47,12 @@
     "src"
   ],
   "types": "./dist/index.d.ts",
-  "module": "./dist/fii-vue.es.js",
+  "module": "./dist/fii-vue.js",
+  "main": "./dist/fii-vue.cjs",
   "exports": {
     ".": {
-      "import": "./dist/fii-vue.es.js"
+      "import": "./dist/fii-vue.js",
+      "require": "./dist/fii-vue.umd.cjs"
     },
     "./dist/style.css": "./dist/style.css"
   },

@@ -30,6 +30,9 @@ export {
   isSavable,
 } from "./helpers/utils";
 
+// resolver
+export { FiiVueResolver } from "./helpers/resolver";
+
 // layouts
 export { default as FAdminContent } from "./components/layouts/FAdminContent.vue";
 export { default as FAdminLayout } from "./components/layouts/FAdminLayout.vue";
@@ -78,5 +81,3 @@ export { default as FSimpleTable } from "./components/tables/FSimpleTable.vue";
 // button
 export { default as FBtn } from "./components/buttons/FBtn.vue";
 
-// resolver
-export { FiiVueResolver } from "./helpers/resolver";

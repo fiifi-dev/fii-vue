@@ -76,12 +76,12 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "fii-vue",
-      formats: ["es"], // adding 'umd' requires globals set to every external module
-      fileName: (format) => `fii-vue.${format}.js`,
+    //  formats: ["es"], // adding 'umd' requires globals set to every external module
+      // fileName: (format) => `fii-vue.${format}.js`,
     },
     rollupOptions: {
       // external modules won't be bundled into your library
-      external: ["vue", "vue-router"], // not every external has a global
+      external: ["vue"], // not every external has a global
       output: {
         // disable warning on src/index.ts using both default and named export
         exports: "named",
