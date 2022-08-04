@@ -2,13 +2,17 @@
   <div class="p-10">
     <FFileInput
       v-model="value"
-      url=" is the same as string and the compiler aggressively reduces such unions to string. This is completely correct as far as type safety goes. But it's not great from the point of view of documentation or IntelliSense, as you've seen."
+      url="is the same as string and the compiler aggressively reduces such."
     />
   </div>
 </template>
 
 <script setup lang="ts">
-import "../dist/style.css";
+// import "../dist/style.css";
+import { useHasFile } from "./composables/src/file";
+
+const value = ref(null);
+const hasFile = useHasFile(value,()=>"is the same as string and the compiler aggressively reduces such.")
 
 // const headers: TableHeader[] = [
 //   { key: "full_name", label: "Full Name" },
@@ -17,7 +21,7 @@ import "../dist/style.css";
 //   { key: "role_label", label: "Role" },
 // ];
 
-const value = ref(null);
+
 
 const handle = () => {
   console.log("hello world");
