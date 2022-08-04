@@ -2,7 +2,7 @@ import { diff } from "deep-diff";
 import { computed, onMounted, ref } from "vue";
 import { deepCopy } from "@/helpers/src/utils";
 
-export const useDeepDiff = <T>(values: () => Partial<T> | undefined) => {
+export const useDeepDiff = <T>(values: () => T | undefined) => {
   const clone = ref<T>();
 
   onMounted(() => {
