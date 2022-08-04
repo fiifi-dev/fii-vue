@@ -4,13 +4,16 @@
       v-for="item in items"
       :key="item.key"
       :to="item.to"
-      v-slot="{ isExactActive, navigate }"
+      v-slot="{ isExactActive, isActive, navigate }"
       custom
     >
       <div
         :class="[
           'f-menu',
-          { 'f-menu-active': isExactActive, 'justify-center': collapse },
+          {
+            'f-menu-active': isExactActive || isActive,
+            'justify-center': collapse,
+          },
         ]"
         @click="navigate"
       >
