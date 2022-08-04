@@ -2,15 +2,15 @@ import { diff } from "deep-diff";
 import { computed, onMounted, ref } from "vue";
 import { deepCopy } from "@/helpers/utils";
 
-export const useDeepDiff = <T>(value: () => T) => {
+export const useDeepDiff = <T>(values: () => T | undefined) => {
   const clone = ref<T>();
 
   onMounted(() => {
-    clone.value = deepCopy(value());
+    clone.value = deepCopy(values());
   });
 
   const isSame = computed(() => {
-    const changes = diff(clone.value, value());
+    const changes = diff(clone.value, values());
     if (changes) return false;
     return true;
   });

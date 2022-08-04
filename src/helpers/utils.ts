@@ -76,8 +76,6 @@ export const isExpiredToken = (token?: string) => {
   return exp < now;
 };
 
-
-
 export const pickedObj = <T>(keys: (keyof T)[], obj: T) => {
   const picked: Partial<T> = {};
   for (let i = 0; i < keys.length; i++) {
@@ -86,7 +84,6 @@ export const pickedObj = <T>(keys: (keyof T)[], obj: T) => {
   }
   return picked;
 };
-
 
 export const parseObjAsFormData = (obj: Record<string, any>) => {
   const formData = new FormData();
@@ -116,4 +113,10 @@ export const objHasFile = (obj: Record<string, any>) => {
     if (data instanceof File || data instanceof FileList) return true;
   }
   return false;
+};
+
+export const isSavable = (method?: string) => {
+  if (!method) return false;
+  const methodLower = method.toLocaleLowerCase()
+  return ["post", "put", "patch"].includes(methodLower);
 };
