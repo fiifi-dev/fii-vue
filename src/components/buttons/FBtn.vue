@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { Size, Variant } from "@/types";
+import { Size, Variant } from "@/types/general";
 import type { PropType } from "vue";
 
 export default defineComponent({

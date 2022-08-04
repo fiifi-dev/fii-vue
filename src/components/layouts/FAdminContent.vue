@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { Tab } from "@/types";
+import { Tab } from "@/types/general";
 import type { PropType } from "vue";
 
 export default defineComponent({

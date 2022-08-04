@@ -1,4 +1,4 @@
-import { Toast } from "@/helpers/buses";
+import { Toast } from "@/helpers/src/buses";
 
 export const useToast = (
   msg?: Toast["message"],

@@ -3,7 +3,6 @@ import { fileURLToPath, URL } from "url";
 import { resolve } from "path";
 import vue from "@vitejs/plugin-vue";
 import WindiCSS from "vite-plugin-windicss";
-import dts from "vite-plugin-dts";
 import AutoImport from "unplugin-auto-import/vite";
 
 import Icons from "unplugin-icons/vite";
@@ -18,7 +17,6 @@ export default defineConfig({
     vue(),
     vueJsx(),
     WindiCSS(),
-    dts(),
     AutoImport({
       imports: [
         "vue",
@@ -35,7 +33,7 @@ export default defineConfig({
         },
       ],
 
-      dirs: ["./src/composables", "./src/helpers"],
+      dirs: ["./src/composables/src", "./src/helpers/src"],
       dts: "./src/auto-imports.d.ts",
     }),
     Components({

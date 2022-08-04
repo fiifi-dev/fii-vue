@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import type { Toast } from "@/helpers/buses";
+import type { Toast } from "@/helpers/src/buses";
 
 export default defineComponent({
   name: "FToast",
