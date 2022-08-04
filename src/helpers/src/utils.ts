@@ -120,3 +120,11 @@ export const isSavable = (method?: string) => {
   const methodLower = method.toLocaleLowerCase()
   return ["post", "put", "patch"].includes(methodLower);
 };
+
+export const openUrl = (url?: string) => {
+  if (!url) return;
+  const a = document.createElement("a");
+  a.href = url;
+  a.target = "_blank";
+  a.click();
+};

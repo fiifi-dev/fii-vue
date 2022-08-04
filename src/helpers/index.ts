@@ -8,6 +8,7 @@ export {
   removeEmptyKeys,
   objHasFile,
   isSavable,
+  openUrl
 } from "./src/utils";
 
 export { FiiVueResolver } from "./src/resolver";
