@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex items-center justify-center p-5">
+  <div class="w-full h-full flex justify-center p-5">
     <div :style="styles" class="m-auto">
       <slot />
     </div>
