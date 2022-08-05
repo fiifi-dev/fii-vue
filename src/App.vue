@@ -1,10 +1,7 @@
 <template>
   <div class="p-10">
-    <button @click="handle">{{ hasFile }}</button>
-    <FFileInput
-      v-model="value"
-      url="is the same as string and the compiler aggressively reduces such."
-    />
+    <button>{{ value }}</button>
+    <FCheckbox v-model="value" label="Click Me" />
   </div>
 </template>
 
@@ -12,7 +9,7 @@
 import "../dist/style.css";
 import { useHasFile } from "./composables/src/file";
 
-const value = ref(null);
+const value = ref(false);
 const url = ref("hello world");
 const hasFile = useHasFile(value, () => url.value);
 

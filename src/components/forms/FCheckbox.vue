@@ -28,8 +28,16 @@ export default defineComponent({
       required: false,
       default: "",
     },
-    falseValue: null,
-    trueValue: null,
+    falseValue: {
+      type: null,
+      required: false,
+      default: false,
+    },
+    trueValue: {
+      type: null,
+      required: false,
+      default: true,
+    },
   },
 
   emits: {
