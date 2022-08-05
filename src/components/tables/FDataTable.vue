@@ -84,7 +84,7 @@
           </tr>
         </tbody>
 
-        <tbody v-if="items.length > 0">
+        <tbody v-else-if="items.length > 0">
           <tr
             v-for="(item, index) in items"
             :key="item?.[idField]"
