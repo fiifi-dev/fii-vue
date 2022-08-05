@@ -1,6 +1,6 @@
 <template>
   <div class="inline-block">
-    <label :class="['.f-label', disabled ? 'opacity-50' : '']">
+    <label :class="['f-label', disabled ? 'opacity-50' : '']">
       <input
         type="checkbox"
         :disabled="disabled"
