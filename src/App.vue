@@ -20,9 +20,8 @@ const hasFile = useHasFile(value, () => url.value);
 //   { key: "role_label", label: "Role" },
 // ];
 
-const handle = () => {
-  url.value = "";
-};
+
+const handle = () => {};
 </script>
 
 <style scoped></style>

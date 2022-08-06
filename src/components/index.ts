@@ -48,3 +48,4 @@ export { default as FBtn } from "./buttons/FBtn.vue";
 
 // media
 export { default as FImg } from "./media/FImg.vue";
+export { default as FCarousel } from "./media/FCarousel.vue";
