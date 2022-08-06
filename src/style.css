@@ -2,9 +2,13 @@
 @import "./components/tables/table.css";
 
 :root {
-  --primary-color-100: theme("colors.slate.700");
-  --primary-color-200: theme("colors.slate.800");
-  --primary-color-300: theme("colors.slate.900");
+  --primary-100: theme("colors.slate.700");
+  --primary-200: theme("colors.slate.800");
+  --primary-300: theme("colors.slate.900");
+
+  --accent-100: theme("colors.orange.400");
+  --accent-200: theme("colors.orange.500");
+  --accent-300: theme("colors.orange.600");
 }
 
 /* fixes body overflow-y  */

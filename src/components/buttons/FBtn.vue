@@ -68,6 +68,11 @@ export default defineComponent({
   @apply active:not-disabled:bg-primary-100;
 }
 
+.btn-accent {
+  @apply bg-accent-200 hover:not-disabled:bg-accent-300;
+  @apply active:not-disabled:bg-accent-100;
+}
+
 .btn-danger {
   @apply bg-danger-200 hover:not-disabled:bg-danger-300;
   @apply active:not-disabled:bg-danger-100;

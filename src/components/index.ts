@@ -6,6 +6,7 @@ export { default as FAuthSidedLayout } from "./layouts/FAuthSidedLayout.vue";
 export { default as FSpace } from "./layouts/FSpace.vue";
 export { default as FAdminPage } from "./layouts/FAdminPage.vue";
 export { default as FErrorLayout } from "./layouts/FErrorLayout.vue";
+export { default as FAutoGrid } from "./layouts/FAutoGrid.vue";
 
 // cards
 export { default as FCard } from "./cards/FCard.vue";
@@ -13,8 +14,6 @@ export { default as FCard } from "./cards/FCard.vue";
 // drawers
 export { default as FDrawer } from "./drawers/FDrawer.vue";
 
-// grid
-export { default as FAutoCols } from "./grid/FAutoCols.vue";
 
 // forms
 export { default as FCheckbox } from "./forms/FCheckbox.vue";
@@ -49,3 +48,4 @@ export { default as FBtn } from "./buttons/FBtn.vue";
 // media
 export { default as FImg } from "./media/FImg.vue";
 export { default as FCarousel } from "./media/FCarousel.vue";
+export { default as FCarouselSlide } from "./media/FCarouselSlide.vue";

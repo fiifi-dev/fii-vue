@@ -8,9 +8,15 @@ export default defineConfig({
     extend: {
       colors: {
         primary: {
-          100: "var(--primary-color-100)",
-          200: "var(--primary-color-200)",
-          300: "var(--primary-color-300)",
+          100: "var(--primary-100)",
+          200: "var(--primary-200)",
+          300: "var(--primary-300)",
+        },
+
+        accent: {
+          100: "var(--accent-100)",
+          200: "var(--accent-200)",
+          300: "var(--accent-300)",
         },
 
         danger: {

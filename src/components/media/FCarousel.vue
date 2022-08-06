@@ -33,13 +33,16 @@
       <ul data-slides>
         <li
           v-for="(image, index) in images"
-          :key="index"
+          :key="image.key"
           class="slide"
           :data-active="selectedItem === index"
         >
-          <img :src="image" :alt="`Image ${index}`" />
+          <img :src="image.url" :alt="`Image ${image.key}`" />
+
           <div class="content">
-            <slot />
+            <slot :name="`key(${image.key})`" :item="image" :index="index">
+              <h1 class="text-2xl">{{ image?.title }}</h1>
+            </slot>
           </div>
         </li>
       </ul>
@@ -48,16 +51,30 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
+import { PropType, StyleValue } from "vue";
+
+type SlideItem = {
+  url: string;
+  key: string | number;
+  title?: string;
+  description?: string;
+  [key: string]: any;
+};
 
 export default defineComponent({
   name: "FCarousel",
 
   props: {
     images: {
-      type: Array as PropType<string[]>,
+      type: Array as PropType<SlideItem[]>,
       required: false,
       default: () => [],
+    },
+
+    contentClass: {
+      type: [String, Object] as PropType<StyleValue>,
+      required: false,
+      default: "",
     },
 
     height: {
@@ -140,7 +157,7 @@ body {
 }
 .carousel .slide > .content {
   @apply block h-full w-full z-1 absolute;
-  @apply after:(content-[''] block bg-black/30 absolute inset-0 -z-1);
+  @apply after:(content-[''] block bg-black/30 absolute inset-0 -z-5);
 }
 
 .carousel .slide[data-active="true"] {

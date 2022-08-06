@@ -9,7 +9,8 @@ export type Variant =
   | "success"
   | "info"
   | "light"
-  | "dark";
+  | "dark"
+  | "accent";
 
 export type Size = "sm" | "md" | "lg";
 
@@ -47,8 +48,13 @@ export type MenuItem = {
   to: RouteLocationRaw;
 };
 
-
 export type AppBarItem = {
   label: string;
   to: RouteLocationRaw;
+};
+
+export type SlideItem = {
+  key: string;
+  label: string;
+  variant: Variant;
 };
