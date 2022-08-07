@@ -49,3 +49,7 @@ export { default as FBtn } from "./buttons/FBtn.vue";
 export { default as FImg } from "./media/FImg.vue";
 export { default as FCarousel } from "./media/FCarousel.vue";
 export { default as FCarouselSlide } from "./media/FCarouselSlide.vue";
+
+
+// bars
+export { default as FAppBar } from "./bars/FAppBar.vue";

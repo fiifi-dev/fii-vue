@@ -1,6 +1,6 @@
 <template>
-  <section aria-label="Newest Photos">
-    <div class="carousel" data-carousel :style="{ width, height }">
+  <section class="w-full" aria-label="Newest Photos">
+    <div class="carousel" data-carousel :style="{ minHeight: height }">
       <div class="action">
         <div class="indicators">
           <div
@@ -82,19 +82,7 @@ export default defineComponent({
       required: false,
       default: "100vh",
       validator: (value: string) => {
-        const test = new RegExp("^\\d+(px|em|rem|vh|vw)$").test(value);
-        if (!test)
-          console.error("Must provide a valid size: eg. 100em,4px etc");
-        return test;
-      },
-    },
-
-    width: {
-      type: String,
-      required: false,
-      default: "100vw",
-      validator: (value: string) => {
-        const test = new RegExp("^\\d+(px|em|rem|vh|vw)$").test(value);
+        const test = new RegExp("^\\d+(px|em|rem|vh|vw|%)$").test(value);
         if (!test)
           console.error("Must provide a valid size: eg. 100em,4px etc");
         return test;

@@ -103,6 +103,7 @@ declare global {
   const useTableSelected: typeof import('./composables/src/table')['useTableSelected']
   const useToast: typeof import('./composables/src/toast')['useToast']
   const useVModel: typeof import('@vueuse/core')['useVModel']
+  const useWindowScroll: typeof import('@vueuse/core')['useWindowScroll']
   const useWindowSize: typeof import('@vueuse/core')['useWindowSize']
   const uuid: typeof import('./helpers/src/utils')['uuid']
   const watch: typeof import('vue')['watch']

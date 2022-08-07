@@ -59,7 +59,7 @@ export default defineComponent({
 
 <style scoped>
 .btn {
-  @apply uppercase tracking-wider pl-5 pr-5;
+  @apply uppercase tracking-wider pl-5 pr-5 whitespace-nowrap;
   @apply disabled:(opacity-70 cursor-default);
 }
 

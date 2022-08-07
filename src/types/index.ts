@@ -7,4 +7,5 @@ export type {
   MenuItem,
   AppBarItem,
   DropdownItem,
+  SlideItem,
 } from "./general";

@@ -28,6 +28,7 @@ export default defineConfig({
             "useMediaQuery",
             "useEventBus",
             "onClickOutside",
+            "useWindowScroll",
             "useWindowSize",
           ],
         },

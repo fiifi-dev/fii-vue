@@ -8,7 +8,7 @@
       {{ description }}
     </p>
 
-    <div class="flex items-center gap-5" v-if="actions.length > 0">
+    <div class="flex items-center flex-wrap gap-5" v-if="actions.length > 0">
       <FBtn
         v-for="action in actions"
         :key="action.key"
@@ -68,7 +68,7 @@ export default defineComponent({
 }
 
 .slide-title {
-  @apply font-bold text-gray-100 max-w-4xl tracking-wider;
+  @apply font-bold text-gray-100 max-w-4xl;
   font-size: clamp(1.5rem, 4vw + 1rem, 3.5rem);
 }
 
