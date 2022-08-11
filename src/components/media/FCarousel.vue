@@ -51,15 +51,8 @@
 </template>
 
 <script lang="ts">
+import type { SlideItem } from "../../types/general";
 import { PropType, StyleValue } from "vue";
-
-type SlideItem = {
-  url: string;
-  key: string | number;
-  title?: string;
-  description?: string;
-  [key: string]: any;
-};
 
 export default defineComponent({
   name: "FCarousel",

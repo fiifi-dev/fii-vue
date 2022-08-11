@@ -54,7 +54,9 @@ export type AppBarItem = {
 };
 
 export type SlideItem = {
-  key: string;
-  label: string;
-  variant: Variant;
+  url: string;
+  key: string | number;
+  title?: string;
+  description?: string;
+  [key: string]: any;
 };
