@@ -2,22 +2,22 @@
   <div class="p-0 m-0">
     <FAppBar :items="menuItems" />
 
-    <FCarousel :images="images" content-class="flex items-center p-5">
-      <template #key(one)="{ item }">
+    <FCarousel :items="items" content-class="flex items-center p-5">
+      <template #key(1)="{ item }">
         <FCarouselSlide
           :title="item.title"
           :description="item.description"
           :actions="actions"
         />
       </template>
-      <template #key(two)="{ item }">
+      <template #key(2)="{ item }">
         <FCarouselSlide
           :title="item.title"
           :description="item.description"
           :actions="actions"
         />
       </template>
-      <template #key(three)="{ item }">
+      <template #key(3)="{ item }">
         <FCarouselSlide
           :title="item.title"
           :description="item.description"
@@ -35,29 +35,32 @@ import "../dist/style.css";
 import FCarousel from "@/components/media/FCarousel.vue";
 import FCarouselSlide from "@/components/media/FCarouselSlide.vue";
 import FAppBar from "@/components/bars/FAppBar.vue";
-import { SlideItem } from "./types/general";
+import type { SlideItem, SlideItemAction } from "./types/general";
 
-const images = ref([
+
+
+const items = ref<SlideItem[]>([
   {
-    url: "https://images.unsplash.com/photo-1657299170935-31e068229885?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    key: "one",
+    url: "https://loremflickr.com/3000/2700?lock=1",
     title: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, iste.",
   },
   {
-    url: "https://images.unsplash.com/photo-1657299170222-1c67dc056b70?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    key: "two",
+    url: "https://loremflickr.com/3000/2700?lock=2",
     title: "Eos aliquam inventore odio temporibus eligendi repudiandae quia",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, iste.",
   },
   {
-    url: "https://images.unsplash.com/photo-1657299142018-4f7f33aea18c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
-    key: "three",
+    url: "https://loremflickr.com/3000/2700?lock=3",
     title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, iste.",
   },
 ]);
 
-const actions: SlideItem[] = [
+const actions:SlideItemAction[] = [
   { key: "about_Us", label: "About Us", variant: "primary" },
   { key: "admissions", label: "Admissions", variant: "accent" },
 ];

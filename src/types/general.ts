@@ -53,10 +53,16 @@ export type AppBarItem = {
   to: RouteLocationRaw;
 };
 
+export type SlideItemAction = {
+  key: string;
+  label: string;
+  variant: Variant;
+};
+
 export type SlideItem = {
+  [key: string]: any;
   url: string;
-  key: string | number;
   title?: string;
   description?: string;
-  [key: string]: any;
+  actions?: SlideItemAction[];
 };

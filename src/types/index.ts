@@ -8,4 +8,5 @@ export type {
   AppBarItem,
   DropdownItem,
   SlideItem,
+  SlideItemAction
 } from "./general";

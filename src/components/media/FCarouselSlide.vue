@@ -23,10 +23,8 @@
 </template>
 
 <script lang="ts">
-import { SlideItem, Variant } from "../../types/general";
+import type { SlideItemAction } from "../../types/general";
 import { PropType } from "vue";
-
-
 
 export default defineComponent({
   name: "FCarouselSlide",
@@ -44,7 +42,7 @@ export default defineComponent({
     },
 
     actions: {
-      type: Array as PropType<SlideItem[]>,
+      type: Array as PropType<SlideItemAction[]>,
       required: false,
       default: () => [
         { key: "about_Us", label: "About Us", variant: "primary" },
@@ -73,7 +71,7 @@ export default defineComponent({
 }
 
 .slide-description {
-  @apply max-w-3xl text-gray-600 relative p-5 tracking-wider;
-  @apply after:(content-[''] block absolute inset-0 bg-white -z-1);
+  @apply max-w-3xl text-gray-200 relative tracking-wider;
+  @apply text-lg font-semibold;
 }
 </style>

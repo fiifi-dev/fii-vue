@@ -4,7 +4,7 @@
       <div class="action">
         <div class="indicators">
           <div
-            v-for="item in images.length"
+            v-for="item in items.length"
             :key="item"
             :data-active="item === selectedItem + 1"
             @click="selectedItem = item - 1"
@@ -32,16 +32,16 @@
 
       <ul data-slides>
         <li
-          v-for="(image, index) in images"
-          :key="image.key"
+          v-for="(item, index) in items"
+          :key="index"
           class="slide"
           :data-active="selectedItem === index"
         >
-          <img :src="image.url" :alt="`Image ${image.key}`" />
+          <img :src="item.url" :alt="`Image ${index}`" />
 
           <div class="content">
-            <slot :name="`key(${image.key})`" :item="image" :index="index">
-              <h1 class="text-2xl">{{ image?.title }}</h1>
+            <slot :name="`item(${index})`" :item="item" :index="index">
+              <h1 class="text-2xl">Item {{ index }}</h1>
             </slot>
           </div>
         </li>
@@ -52,13 +52,13 @@
 
 <script lang="ts">
 import type { SlideItem } from "../../types/general";
-import { PropType, StyleValue } from "vue";
+import type { PropType, StyleValue } from "vue";
 
 export default defineComponent({
   name: "FCarousel",
 
   props: {
-    images: {
+    items: {
       type: Array as PropType<SlideItem[]>,
       required: false,
       default: () => [],
@@ -91,8 +91,8 @@ export default defineComponent({
       const offset = isNext ? 1 : -1;
       let newIndex = selectedItem.value + offset;
 
-      if (newIndex >= props.images.length) newIndex = 0;
-      else if (newIndex < 0) newIndex = props.images.length - 1;
+      if (newIndex >= props.items.length) newIndex = 0;
+      else if (newIndex < 0) newIndex = props.items.length - 1;
 
       selectedItem.value = newIndex;
     };
